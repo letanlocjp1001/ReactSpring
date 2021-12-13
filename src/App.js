@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
 import './App.css'
+import Form from './Form'
+// ==
 const App = () => {
   const [items, setItems] = useState([])
   // const [isVisible, setIsVisible] = useState(false)
@@ -13,37 +15,40 @@ const App = () => {
     leave: { x: 100, y: 800, opacity: 0 },
   })
   return (
-    <div className='app'>
-      <button
-        onClick={() => {
-          setItems((v) =>
-            v.length
-              ? []
-              : [
-                  {
-                    y: -100,
-                    delay: 200,
-                  },
-                  {
-                    y: 0,
-                    delay: 400,
-                  },
-                  {
-                    y: 100,
-                    delay: 600,
-                  },
-                ]
-          )
-        }}
-      >
-        {items.length ? 'un-mount' : 'mount'}
-      </button>
-      <div className='container'>
-        {transition((style, item) =>
-          item ? <animated.div style={style} className='item' /> : ''
-        )}
+    <>
+      <div className='app'>
+        <button
+          onClick={() => {
+            setItems((v) =>
+              v.length
+                ? []
+                : [
+                    {
+                      y: -100,
+                      delay: 200,
+                    },
+                    {
+                      y: 0,
+                      delay: 400,
+                    },
+                    {
+                      y: 100,
+                      delay: 600,
+                    },
+                  ]
+            )
+          }}
+        >
+          {items.length ? 'un-mount' : 'mount'}
+        </button>
+        <div className='container'>
+          {transition((style, item) =>
+            item ? <animated.div style={style} className='item' /> : ''
+          )}
+        </div>
       </div>
-    </div>
+      <Form />
+    </>
   )
 }
 
