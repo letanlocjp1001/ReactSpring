@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
 import './App.css'
-import Form from './Form'
+// import Form from './Form'
+import Book from './Book'
 // ==
 const App = () => {
   const [items, setItems] = useState([])
@@ -16,7 +17,7 @@ const App = () => {
   })
   return (
     <>
-      <div className='app'>
+      {/* <div className='app'>
         <button
           onClick={() => {
             setItems((v) =>
@@ -46,8 +47,9 @@ const App = () => {
             item ? <animated.div style={style} className='item' /> : ''
           )}
         </div>
-      </div>
-      <Form />
+      </div> */}
+      {/* <Form /> */}
+      <Book />
     </>
   )
 }
